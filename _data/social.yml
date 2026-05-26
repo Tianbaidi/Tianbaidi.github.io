@@ -1,6 +1,17 @@
-- title: Twitter
-  url: https://twitter.com/ngzhio
-  icon: fab fa-twitter
 - title: GitHub
-  url: https://github.com/ngzhio/jekyll-theme-hamilton
+  url: https://github.com/Tianbaidi
   icon: fab fa-github
+- title: Bilibili
+  url: https://space.bilibili.com/432092274
+  icon: fab fa-bilibili
+- title: Zhihu
+  url: https://www.zhihu.com/people/rt-64-26
+  icon: custom-icon-zhihu
+  label: 知
+- title: TaskFirst
+  url: https://blog.taskfirst.cn/user/7141fcfa620e4035aea5c48c11b472c7/
+  icon: custom-icon-taskfirst
+  label: Task
+- title: WeChat
+  url: https://mp.weixin.qq.com/s/hd6uNmJ0AhK6YMLupVyoqg
+  icon: fab fa-weixin

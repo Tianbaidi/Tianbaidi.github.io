@@ -45,7 +45,13 @@
     <ul class="social-icons">
       {% for social in site.data.social -%}
         <li>
-          <a class="social-icon" href="{{ social.url }}"><i class="{{ social.icon | default: 'fas fa-link' }} fa-2x" title="{{ social.title }}"></i></a>
+          <a class="social-icon" href="{{ social.url }}" title="{{ social.title }}">
+            {% if social.label -%}
+              <span class="custom-icon {{ social.icon }}">{{ social.label }}</span>
+            {%- else -%}
+              <i class="{{ social.icon | default: 'fas fa-link' }} fa-2x"></i>
+            {%- endif %}
+          </a>
         </li>
       {%- endfor %}
     </ul>

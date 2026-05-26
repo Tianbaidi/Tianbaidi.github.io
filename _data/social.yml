@@ -3,7 +3,8 @@
   icon: fab fa-github
 - title: Bilibili
   url: https://space.bilibili.com/432092274
-  icon: fab fa-bilibili
+  icon: custom-icon-bilibili
+  label: B
 - title: Zhihu
   url: https://www.zhihu.com/people/rt-64-26
   icon: custom-icon-zhihu

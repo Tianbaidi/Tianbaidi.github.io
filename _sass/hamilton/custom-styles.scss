@@ -4,3 +4,22 @@
   height: 1.8em;
   vertical-align: middle;
 }
+
+// Theme toggle button
+.theme-toggle {
+  display: block;
+  margin: 0 auto;
+  padding: 0.3em 0.6em;
+  font-size: 1.2rem;
+  line-height: 1;
+  background: none;
+  border: 1px solid;
+  border-radius: 0.4em;
+  cursor: pointer;
+  color: inherit;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(128, 128, 128, 0.15);
+  }
+}

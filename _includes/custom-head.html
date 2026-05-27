@@ -1,18 +1,65 @@
-<!-- Switch social badges based on site skin -->
 <script>
   (function() {
-    const hour = (new Date()).getHours();
-    let isDark = (hour < 5 || hour >= 19);  // midnight & sunset are dark
-    // sunset (17-19) is warm/dark, treat as dark for badge contrast
-    let badgeDir = (isDark || (hour >= 17 && hour < 19)) ? '/badges-dark/' : '/badges/';
-    const basePath = '{{ site.baseurl }}' || '';
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.social-badge-img').forEach(function(img) {
-        var badge = img.getAttribute('data-badge');
-        if (badge) {
-          img.src = basePath + badgeDir + badge + '.svg';
+    const skins = ['daylight', 'sunrise', 'sunset', 'midnight'];
+    const skinIcons = { daylight: '☀️', sunrise: '🌅', sunset: '🌇', midnight: '🌙' };
+    const darkBadges = { sunset: true, midnight: true };
+
+    function getSavedSkin() {
+      try { var s = localStorage.getItem('skin'); return skins.includes(s) ? s : null; }
+      catch(e) { return null; }
+    }
+
+    function getAutoSkin() {
+      var h = new Date().getHours();
+      if (h >= 5 && h < 7)  return 'sunrise';
+      if (h >= 7 && h < 17) return 'daylight';
+      if (h >= 17 && h < 19) return 'sunset';
+      return 'midnight';
+    }
+
+    function updateSkinCSS(skin) {
+      var links = document.querySelectorAll('link[rel="stylesheet"]');
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].href.indexOf('skin-') !== -1) {
+          links[i].href = links[i].href.replace(/skin-[a-z]+/, 'skin-' + skin);
+          break;
         }
-      });
+      }
+    }
+
+    function updateBadges(skin) {
+      var dir = darkBadges[skin] ? '/badges-dark/' : '/badges/';
+      var imgs = document.querySelectorAll('.social-badge-img');
+      for (var i = 0; i < imgs.length; i++) {
+        var badge = imgs[i].getAttribute('data-badge');
+        if (badge) imgs[i].src = dir + badge + '.svg';
+      }
+    }
+
+    function applySkin(skin, save) {
+      updateSkinCSS(skin);
+      updateBadges(skin);
+      if (save) {
+        try { localStorage.setItem('skin', skin); } catch(e) {}
+      }
+      var btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.textContent = skinIcons[skin] || '🎨';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var saved = getSavedSkin();
+      var skin = saved || getAutoSkin();
+      applySkin(skin, false);
+
+      var btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          var current = getSavedSkin() || getAutoSkin();
+          var idx = skins.indexOf(current);
+          var next = skins[(idx + 1) % skins.length];
+          applySkin(next, true);
+        });
+      }
     });
   })();
 </script>

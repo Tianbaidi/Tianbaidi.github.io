@@ -1,29 +1,6 @@
-// Custom social icons (no Font Awesome brand icon available)
-.custom-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.6em;
-  height: 1.6em;
-  padding: 0 0.15em;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 0.2em;
-  line-height: 1;
-  text-decoration: none;
+// Social badge (SVG) icons
+.social-badge-img {
+  width: 1.8em;
+  height: 1.8em;
   vertical-align: middle;
-  box-sizing: border-box;
-}
-
-.custom-icon-zhihu {
-  background-color: #0066ff;
-}
-
-.custom-icon-bilibili {
-  background-color: #fb7299;
-}
-
-.custom-icon-taskfirst {
-  background-color: #555;
 }

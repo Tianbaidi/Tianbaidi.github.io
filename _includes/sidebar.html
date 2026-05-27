@@ -46,8 +46,8 @@
       {% for social in site.data.social -%}
         <li>
           <a class="social-icon" href="{{ social.url }}" title="{{ social.title }}">
-            {% if social.label -%}
-              <span class="custom-icon {{ social.icon }}">{{ social.label }}</span>
+            {% if social.badge -%}
+              <img class="social-badge-img" src="{{ '/badges/' | append: social.badge | append: '.svg' | relative_url }}" alt="{{ social.title }}" data-badge="{{ social.badge }}">
             {%- else -%}
               <i class="{{ social.icon | default: 'fas fa-link' }} fa-2x"></i>
             {%- endif %}

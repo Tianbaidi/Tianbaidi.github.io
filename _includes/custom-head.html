@@ -1,6 +1,18 @@
-{% comment %}
-  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
-
-  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
-  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
-{% endcomment %}
+<!-- Switch social badges based on site skin -->
+<script>
+  (function() {
+    const hour = (new Date()).getHours();
+    let isDark = (hour < 5 || hour >= 19);  // midnight & sunset are dark
+    // sunset (17-19) is warm/dark, treat as dark for badge contrast
+    let badgeDir = (isDark || (hour >= 17 && hour < 19)) ? '/badges-dark/' : '/badges/';
+    const basePath = '{{ site.baseurl }}' || '';
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.social-badge-img').forEach(function(img) {
+        var badge = img.getAttribute('data-badge');
+        if (badge) {
+          img.src = basePath + badgeDir + badge + '.svg';
+        }
+      });
+    });
+  })();
+</script>

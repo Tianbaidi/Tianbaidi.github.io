@@ -6,7 +6,7 @@ permalink: /
 
 ## Zhan Yang
 
-Math Student @ HZNU | Wandering through Geometry, Algebra, and Analysis (with non-zero probability).
+Math Student @ HZNU|Wandering through Geometry, Algebra, and Analysis (with non-zero probability).
 
 > Intelligence lies in diligence, genius in accumulation.
 > — Luogen Hua
@@ -14,7 +14,7 @@ Math Student @ HZNU | Wandering through Geometry, Algebra, and Analysis (with no
 ### Activities
 
 - **SUSTech Real Analysis Summer Undergraduate Research Program 2026** — *Auditor*
-  - Jul 2026 | Southern University of Science and Technology, Shenzhen
+  - Jul 2026|Southern University of Science and Technology, Shenzhen
   - Approved to audit a research seminar organized by Prof. Bochen Liu et al. on *Construction of Restricted Kakeya Sets*, focusing on frontier problems in geometric measure theory.
 
 - **Spring 2026 Basic Mathematics Seminar** — *Organizer*

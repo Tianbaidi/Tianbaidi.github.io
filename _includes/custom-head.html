@@ -1,20 +1,16 @@
 <script>
   (function() {
-    const skins = ['daylight', 'sunrise', 'sunset', 'midnight'];
-    const skinIcons = { daylight: '☀️', sunrise: '🌅', sunset: '🌇', midnight: '🌙' };
-    const darkBadges = { sunset: true, midnight: true };
+    var skins = ['sunrise', 'midnight'];
+    var darkBadges = { midnight: true };
 
     function getSavedSkin() {
-      try { var s = localStorage.getItem('skin'); return skins.includes(s) ? s : null; }
+      try { var s = localStorage.getItem('skin'); return skins.indexOf(s) >= 0 ? s : null; }
       catch(e) { return null; }
     }
 
     function getAutoSkin() {
       var h = new Date().getHours();
-      if (h >= 5 && h < 7)  return 'sunrise';
-      if (h >= 7 && h < 17) return 'daylight';
-      if (h >= 17 && h < 19) return 'sunset';
-      return 'midnight';
+      return (h >= 5 && h < 19) ? 'sunrise' : 'midnight';
     }
 
     function updateSkinCSS(skin) {
@@ -36,28 +32,38 @@
       }
     }
 
-    function applySkin(skin, save) {
-      updateSkinCSS(skin);
-      updateBadges(skin);
-      if (save) {
-        try { localStorage.setItem('skin', skin); } catch(e) {}
+    function updateIcon(skin) {
+      var sun = document.querySelector('.theme-icon-sun');
+      var moon = document.querySelector('.theme-icon-moon');
+      if (skin === 'midnight') {
+        if (sun) sun.style.display = 'none';
+        if (moon) moon.style.display = 'inline';
+      } else {
+        if (sun) sun.style.display = 'inline';
+        if (moon) moon.style.display = 'none';
       }
-      var btn = document.getElementById('theme-toggle-btn');
-      if (btn) btn.textContent = skinIcons[skin] || '🎨';
     }
 
+    // Immediately correct skin CSS to avoid flash
+    var saved = getSavedSkin();
+    var skin = saved || getAutoSkin();
+    updateSkinCSS(skin);
+    window.__themeSkin = skin;
+
+    // Defer DOM-dependent updates
     document.addEventListener('DOMContentLoaded', function() {
-      var saved = getSavedSkin();
-      var skin = saved || getAutoSkin();
-      applySkin(skin, false);
+      updateBadges(window.__themeSkin);
+      updateIcon(window.__themeSkin);
 
       var btn = document.getElementById('theme-toggle-btn');
       if (btn) {
         btn.addEventListener('click', function() {
           var current = getSavedSkin() || getAutoSkin();
-          var idx = skins.indexOf(current);
-          var next = skins[(idx + 1) % skins.length];
-          applySkin(next, true);
+          var next = (current === 'sunrise') ? 'midnight' : 'sunrise';
+          updateSkinCSS(next);
+          updateBadges(next);
+          updateIcon(next);
+          try { localStorage.setItem('skin', next); } catch(e) {}
         });
       }
     });

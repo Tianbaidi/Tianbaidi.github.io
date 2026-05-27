@@ -6,8 +6,9 @@ permalink: /
 
 ## Zhan Yang
 
-Math Student @ HZNU | Interested in Geometry(maybe), Algebra(maybe) and Analysis(maybe).
-Mapping abstract structures onto concrete spaces; pursuing convergence in an ideal world.
+Math Student @ HZNU | Wandering through Geometry, Algebra, and Analysis (with non-zero probability).
+
+> Mapping abstract structures onto concrete spaces; pursuing convergence in an ideal world.
 
 ### Activities
 

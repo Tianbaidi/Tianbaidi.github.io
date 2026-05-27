@@ -8,9 +8,14 @@ permalink: /
 
 Math Student @ HZNU | Wandering through Geometry, Algebra, and Analysis (with non-zero probability).
 
-> Mapping abstract structures onto concrete spaces; pursuing convergence in an ideal world.
+> Intelligence lies in diligence, genius in accumulation.
+> — Luogen Hua
 
 ### Activities
+
+- **SUSTech Real Analysis Summer Undergraduate Research Program 2026** — *Auditor*
+  - Jul 2026 | Southern University of Science and Technology, Shenzhen
+  - Approved to audit a research seminar organized by Prof. Bochen Liu et al. on *Construction of Restricted Kakeya Sets*, focusing on frontier problems in geometric measure theory.
 
 - **Spring 2026 Basic Mathematics Seminar** — *Organizer*
   - Reading seminar on:

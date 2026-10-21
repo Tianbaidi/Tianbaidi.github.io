@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tianbaidi.github.io/sitemap.xml

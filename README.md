@@ -1,189 +1,30 @@
-# Hamilton <!-- omit in toc -->
+# Zhan Yang · 个人主页
 
-A minimal and beautiful Jekyll theme best for writing and note-taking.
+从头编写的静态个人主页。米白纸色、衬线排版与轻微油印纹理，不依赖 Hamilton、Jekyll、JavaScript 或其他网站模板。
 
-The original purpose of this theme is to be a replacement of the default Jekyll theme -- [Minima](https://github.com/jekyll/minima). Hamilton is an enhancement of Minima but still, keep in minimal.
+## 本地查看
 
-Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
-
-| Skins | Displays |
-| ----- | -------- |
-| Daylight | ![screenshot](screenshot.png) |
-| Sunrise/Sunset | ![screenshot](screenshot-sunrise.png) |
-| Midnight | ![screenshot](screenshot-midnight.png) |
-
-## Features <!-- omit in toc -->
-
-- [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag)
-- [Jekyll Feed](https://github.com/jekyll/jekyll-feed)
-- [Jekyll Sitemap](https://github.com/jekyll/jekyll-sitemap)
-- [Google Analytics](https://analytics.google.com/)
-- [MathJax](https://www.mathjax.org/)
-- [Disqus](https://disqus.com/)
-- [Font Awesome](https://fontawesome.com/)
-- TOC
-- Customizable head
-- Configurable page navigation
-- Customizable styles and skins
-- Archive pages implemented in pure Liquid
-
-## Table of Contents <!-- omit in toc -->
-
-- [Installation](#installation)
-- [Configuration](#configuration)
-  - [Optional Parameters](#optional-parameters)
-- [Archive Pages](#archive-pages)
-- [MathJax](#mathjax)
-- [TOC](#toc)
-- [Customization](#customization)
-  - [Metadata](#metadata)
-  - [Navigation](#navigation)
-  - [Social Media](#social-media)
-  - [Skins](#skins)
-  - [More Customized Styles](#more-customized-styles)
-- [License](#license)
-
-## Installation
-
-You can choose one of the following methods to install Hamilton:
-
-- Directly specify the `jekyll-theme-hamilton` gem.
-
-    1. Add `gem 'jekyll-theme-hamilton'` into your `Gemfile`.
-    2. Add the below lines into your `_config.yml`.
-
-        ```yml
-        plugins:
-          - jekyll-theme-hamilton
-        ```
-
-- If your site is hosted on GitHub Pages, you can use [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) to import the master branch of Hamilton.
-
-    1. Add `gem 'jekyll-remote-theme'` into your `Gemfile`.
-    2. Add the below lines into your `_config.yml`.
-
-        ```yml
-        plugins:
-          - jekyll-remote-theme
-
-        remote_theme: ngzhio/jekyll-theme-hamilton
-        ```
-
-## Configuration
-
-After installation, you can run `jekyll serve` to check out your site, but before that, *make sure* the below **required parameters** are configured in your `_config.yml`.
-
-| Parameters | Types | Specifications |
-|:---------- |:----- |:-------------- |
-| `title`    | string | The site title |
-| `disqus`   | string | The Disqus shortname; Unless you don't want to enable the comments system, you must specify this parameter. It is used in the production environment. |
-| `google_analytics` | string | The Google Analytics tracking ID; It is used in the production environment. |
-
-### Optional Parameters
-
-| Parameters | Types | Specifications |
-|:---------- |:----- |:-------------- |
-| `author`   | string | The name of the author of the site; It would be showed in the copyright statement. |
-| `avatar`   | string | The avatar of the author of the site. |
-| `email`    | string | The email of the author of the site. |
-| `location` | string | The current living location of the author of the site. |
-| `skin`     | string | The skin name. See more information on the [Customization](#customization) section. |
-| `lang`     | string | The language of the site; The default value is `en`. |
-| `paginate` | int    | The number of posts on each page. |
-| `date_format` | string | The date format; The default value is `%b %-d, %Y`. |
-| `subscribe` | boolean | Show the subsribe feed button. |
-
-## Archive Pages
-
-Hamilton implements some archive templates in pure Liquid. For example, if you want to create a category archive page, set the below parameters on that page:
-
-```yml
----
-layout: archive-taxonomies
-type: categories
----
+```sh
+python3 -m http.server 4173
 ```
 
-Or a tag archive page:
+打开 http://localhost:4173 。页面由 GitHub Pages 从 `master` 根目录发布，`.nojekyll` 禁用 Jekyll 处理。
 
-```yml
-layout: archive-taxonomies
-type: tags
-```
+## 编辑
 
-Or archive by years:
+- `index.html`：个人介绍、文章索引、经历、项目、社交链接。
+- `assets/style.css`：响应式排版、纸张纹理与打印样式。
+- `assets/images/avatar.png`：用户提供的插画。当前发布内容不含个人照片。
+- `assets/icons/`：本地托管的平台图标。
 
-```yml
-layout: archive-years
-```
+文章列表是人工维护的索引，不会自动同步 Rinspace。新增文章时更新标题、日期与链接。
 
-## MathJax
+## 图标来源（2026-10-21 获取）
 
-You can enable MathJax on each post or page, just set `math: true` on that page.
+- GitHub、Bilibili、知乎、微信：从 Simple Icons 官方 npm 包重新下载的 SVG（https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/），CC0，品牌商标属于各自所有者。
+- Rinspace：https://rinspace.com/assets/brand/rinspace-mark-128.png 。现站实际提供的是 PNG，`rinspace.svg` 将该原图嵌入 SVG 容器，保留官方图形；并非伪造的纯矢量版本。
+- 字标 `monogram.svg` 与纸张纹理由本项目编写。
+- Rinspace 当前个人主页：https://rinspace.com/@satori 。文章链接取自该主页公开文章列表。
+- 其他社交地址沿用此前主页已公开的链接；微信入口指向一篇公开文章，不宣称它是账号主页。
 
-## TOC
-
-If you want to show the Table of Contents of a post or page on the left sidebar, just set `toc: true` on that page.
-
-## Customization
-
-### Metadata
-
-You can create a file `_includes/custom-head.html` in your repository, and add any metadata into that page, e.g. favicons.
-
-### Navigation
-
-You can create a file `_data/navigation.yml` to configure links to some pages. For example,
-
-```yml
-- title: About
-  url: /about/
-- title: Categories
-  url: /categories/
-- title: Tags
-  url: /tags/
-```
-
-The navigation bar also supports dropdown submenus:
-
-```yml
-- title: About
-  url: /about/
-- title: Categories
-  url: /categories/
-- title: Tags
-  url: /tags/
-- title: More
-  sublinks:
-    - title: FAQ
-      url: /faq/
-    - title: Docs
-      url: /docs/
-```
-
-### Social Media
-
-You can create a file `_data/social.yml` to configure links to your social media. For example,
-
-```yml
-- title: Twitter
-  url: https://twitter.com/ngzhio
-  icon: fab fa-twitter
-- title: GitHub
-  url: https://github.com/ngzhio/jekyll-theme-hamilton
-  icon: fab fa-github
-```
-
-### Skins
-
-You can select a skin by setting `skin` in `_config.yml`. The built-in skins include `daylight`, `midnight`, `sunrise`, and `sunset`. If you don't specify any skin, Hamilton would dynamically select one in these built-in skins according to different hours in a day.
-
-You can also customize a new skin, for example, a skin called `solarized`. You need to copy [`_sass/hamilton/skins/daylight.scss`](_sass/hamilton/skins/daylight.scss) into your repository and then rename it to `solarized.scss`, and adjust some colors in that file. Finally, specify `skin: solarized` in `_config.yml`.
-
-### More Customized Styles
-
-If you want to create more CSS styles in your site, creating a file `_sass/hamilton/custom-styles.scss`, and putting your code in there, Hamilton would automatically refer to them.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](LICENSE.txt).
+此前 Hamilton 主题的代码、示例文章与照片已从当前版本移除，旧版本仍可通过 Git 历史找回。`LICENSE.txt` 保留原主题历史版权说明；插画和品牌标记不因此获得许可。GitHub 的 fork 关联是仓库级元数据，与页面是否继续使用模板无关。
